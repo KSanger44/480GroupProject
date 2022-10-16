@@ -89,3 +89,73 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  .grid-container {
+    display: grid;
+    background-color:aliceblue;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20%;
+    column-gap: 2em;
+    row-gap: 4em;
+    border: solid 1px #333;
+    
+}
+
+.resources {
+
+  background-color: aliceblue;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  align-items: center;
+  justify-items: center;
+  
+}
+
+.wellness {
+
+  background-color: aliceblue;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  align-items: center;
+  justify-items: center;
+  
+}
+
+.viewpoint {
+
+  background-color: aliceblue;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  align-items: center;
+  justify-items: center;
+  
+}
+
+.ches {
+
+  background-color: aliceblue;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 4;
+  grid-row-end: 4;
+  align-items: center;
+  justify-items: center;
+  
+}
+
+.announcements {
+
+  background-color: aliceblue;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  align-items: center;
+  justify-items: center;
+}
