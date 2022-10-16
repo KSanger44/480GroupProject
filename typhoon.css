@@ -93,12 +93,18 @@
   .grid-container {
     display: grid;
     background-color:aliceblue;
-    grid-template-columns: 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 8% 12% 12% 12% 12%;
     column-gap: 2em;
-    row-gap: 4em;
+    row-gap: 3em;
     border: solid 1px #333;
     
+}
+
+.grid-container a {
+  display: flex;
+  align-items: center;
+  
 }
 
 .resources {
@@ -149,13 +155,35 @@
   
 }
 
+.myce {
+
+  background-color: aliceblue;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 5;
+  grid-row-end: 5;
+  align-items: center;
+  justify-items: center;
+  
+}
+
 .announcements {
 
   background-color: aliceblue;
   grid-column-start: 2;
   grid-column-end: 5;
   grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row-end: 5;
+  align-items: center;
+  justify-items: center;
+}
+
+.aheader {
+  background-color: aliceblue;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 1;
   align-items: center;
   justify-items: center;
 }
