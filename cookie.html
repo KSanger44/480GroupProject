@@ -5,10 +5,14 @@
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+        <!-------Set, get, and show Cookie methods----->
         <script>
             function setCookie(cname, cvalue, exmins) {
+
+            var cvalue = document.getElementById("name").value;
+
             const d = new Date();
-            d.setTime(d.getTime() + (exdays*60*1000));
+            d.setTime(d.getTime() + (exmins*60*1000));
             let expires = "expires="+ d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
             }
@@ -38,19 +42,26 @@
                 };
             };
         </script>
-        <!--Try to show cookie with js/getCookie method-->
+
+        <!--Try to show cookie with jquery/getCookie method-->
         <script>
             $("#np").html(getCookie(username));
         </script>
 
-    </head>
+        <!--Try to show cookie with js/getCookie -->
+        <script>
+            var cookieDiv = document.getElementById("cdiv");
+            cookieDiv.innerHTML = getCookie(username);
+        </script>
 
+    </head>
+        <!--Try to show loading body-->
     <body onload="showCookie()">
 
         <form>
             <h3>Please enter a name to be saved</h3>
             <input type="text" id="name">
-            <button id="saveName">Save Cookie</button>
+            <button id="saveName" onclick="setCookie('username', this, 5)">Save Cookie</button>
             <br>
             <button id="delete">Delete Cookie</button>
         </form>
@@ -60,7 +71,7 @@
             <p id="np"></p>
         </div>
 
-
+        <!-------Save and delete buttons---------------->
         <script>
             $(document).ready(function(){
                 $("#saveName").click(function(){
@@ -75,5 +86,6 @@
                 })
             }))
         </script>
+
     </body>
 </html>
