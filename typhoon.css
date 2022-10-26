@@ -194,3 +194,8 @@
   grid-row-start: 1;
   grid-row-end: 5;  
 }
+
+#ugHospitals summary {
+font-size: larger;
+
+}
