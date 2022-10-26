@@ -1,0 +1,123 @@
+#logo {
+    background-image: url("tsunami.jpg");
+    background-size: contain;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    color: blue;
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-color: blue;
+    overflow: auto;
+    
+}
+
+#logo img{
+    
+    width: 10%;
+    padding: 5px;
+    overflow: auto;
+}
+
+#logo a {   
+    text-decoration: none;
+    color: crimson;
+    display: inline-block;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .navbar a {
+    float: left;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 1em 7em;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 20px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 1em 7em;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 1em 5em;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .grid-container {
+    display: grid;
+    background-color:aliceblue;
+    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-rows: auto;
+    column-gap: 2em;
+    row-gap: 3em;
+    border: solid 1px #333;
+    align-items: center;
+    justify-items: center;
+    
+}
+
+.grid-container a {
+  display: flex;
+  align-items: center;
+  
+}
+
+#ugHospitals {
+    background-color: aliceblue;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    align-items: center;
+    justify-items: center;
+}
+
+#ugHospitals details {
+    display: flex;
+    align-items: center;
+}
