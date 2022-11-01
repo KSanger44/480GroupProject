@@ -1,9 +1,74 @@
 <!DOCTYPE html>
 <html>
+    <!--API Key = AIzaSyCJZaeyRugTZOdzWV9wTgVPrwLCUP7AXYg -->
     <head>
         <link rel="stylesheet" href="typhoon.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <title>Typhoon</title>
     </head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages': ['map'],
+        'mapsApiKey': 'AIzaSyCJZaeyRugTZOdzWV9wTgVPrwLCUP7AXYg'
+      });
+      google.charts.setOnLoadCallback(drawMap);
+  
+      function drawMap () {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Address');
+        data.addColumn('string', 'Location');
+        data.addColumn('string', 'Marker')
+  
+        data.addRows([
+          ['202 S Park St, Madison, WI 53715, United States',                  'Meriter Hospital',   'blue'],
+          ['801 Braxton Place, Madison, WI 53715, United States',   'Select Specialty Hospital',   'blue'],
+          ['700 S Brooks St, Madison, WI 53715, United States',     'SSM St. Marys',   'blue']
+        ]);
+        
+        var url = 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/';
+        var options = {
+          mapType: 'styledMap',
+          zoomLevel: 12,
+          showTooltip: true,
+          showInfoWindow: true,
+          useMapTypeControl: true,
+          icons: {
+          blue: {
+            normal:   url + 'Map-Marker-Ball-Azure-icon.png',
+          },
+          pink: {
+            normal:   url + 'Map-Marker-Ball-Pink-icon.png',
+          }
+        },
+          maps: {
+            // Your custom mapTypeId holding custom map styles.
+            styledMap: {
+              name: 'Styled Map', // This name will be displayed in the map type control.
+              styles: [
+                {featureType: 'poi.attraction',
+                 stylers: [{color: '#fce8b2'}]
+                },
+                {featureType: 'road.highway',
+                 stylers: [{hue: '#0277bd'}, {saturation: -50}]
+                },
+                {featureType: 'road.highway',
+                 elementType: 'labels.icon',
+                 stylers: [{hue: '#000'}, {saturation: 100}, {lightness: 50}]
+                },
+                {featureType: 'landscape',
+                 stylers: [{hue: '#259b24'}, {saturation: 10}, {lightness: -22}]
+                }
+          ]}}
+        };
+  
+        var map = new google.visualization.Map(document.getElementById('map_div'));
+  
+        map.draw(data, options);
+      }
+    </script>
+
     <body>
 
         <div id="logo">
@@ -78,11 +143,13 @@
             <details>
               <summary>William S Middleton Memorial Veteran's Hospital</summary>
               <h4>Unique Requirements:</h4>
-              <p>Annual Ohysical</p>
+              <p>Annual Physical</p>
               <p>TB test 90 days before start date</p>
               <br>
             </details> 
           </div>
         </div>
+
+        <div id="map_div"></div>
     </body>
 </html>
