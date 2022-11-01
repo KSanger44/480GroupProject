@@ -4,6 +4,7 @@
     <head>
         <link rel="stylesheet" href="typhoon.css">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
         <title>Typhoon</title>
     </head>
 
@@ -24,7 +25,9 @@
         data.addRows([
           ['202 S Park St, Madison, WI 53715, United States',                  'Meriter Hospital',   'blue'],
           ['801 Braxton Place, Madison, WI 53715, United States',   'Select Specialty Hospital',   'blue'],
-          ['700 S Brooks St, Madison, WI 53715, United States',     'SSM St. Marys',   'blue']
+          ['700 S Brooks St, Madison, WI 53715, United States',     'SSM St. Marys',   'blue'],
+          ['600 Highland Ave, Madison, WI 53792, United States',     'UW Hospital',   'blue'],
+          ['2500 Overlook Terrace, Madison, WI 53705, United States',     'William S Middleton Memorial Veterans Hospital',   'blue']
         ]);
         
         var url = 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/';
@@ -43,9 +46,8 @@
           }
         },
           maps: {
-            // Your custom mapTypeId holding custom map styles.
             styledMap: {
-              name: 'Styled Map', // This name will be displayed in the map type control.
+              name: 'City Map',
               styles: [
                 {featureType: 'poi.attraction',
                  stylers: [{color: '#fce8b2'}]
@@ -111,37 +113,38 @@
             <a href="https://register.myclinicalexchange.com/MainPage.aspx?ReturnUrl=%2f"><img src="MyCEthumb.png" alt="MyClinicalExchange logo"></a><br>
             <a href="https://register.myclinicalexchange.com/MainPage.aspx?ReturnUrl=%2f">MyClinicalExchange</a> 
           </div>
+
           <div id="ugHospitals">
             <details>
-              <summary>Meriter Hospital</summary>
+              <summary id="Meriter">Meriter Hospital</summary>
                 <h4>Unique Requirements:</h4>
                 <a href="https://register.myclinicalexchange.com/MainPage.aspx?ReturnUrl=%2f">MyClinicalExchange</a>
                 <br>
             </details>
 
             <details>
-              <summary>Select Specialty Hospital</summary>
+              <summary id="Select">Select Specialty Hospital</summary>
               <h4>Unique Requirements:</h4>
               <p>10-Panel Drug Screen</p>
               <br>  
             </details>
             
             <details>
-              <summary>St Mary's Hospital</summary>
+              <summary id="SSM">St Mary's Hospital</summary>
               <h4>Unique Requirements:</h4>
               <a href="https://register.myclinicalexchange.com/MainPage.aspx?ReturnUrl=%2f">MyClinicalExchange</a>
               <br>
             </details>
             
             <details>
-              <summary>UW & American Family Children's Hospital</summary>
+              <summary id="UW">UW & American Family Children's Hospital</summary>
               <h4>Unique Requirements:</h4>
               <a href="https://register.myclinicalexchange.com/MainPage.aspx?ReturnUrl=%2f">MyClinicalExchange</a>
               <br>  
             </details>
             
             <details>
-              <summary>William S Middleton Memorial Veteran's Hospital</summary>
+              <summary id="VA">William S Middleton Memorial Veteran's Hospital</summary>
               <h4>Unique Requirements:</h4>
               <p>Annual Physical</p>
               <p>TB test 90 days before start date</p>
@@ -151,5 +154,9 @@
         </div>
 
         <div id="map_div"></div>
+
+
+        </script>
+
     </body>
 </html>
