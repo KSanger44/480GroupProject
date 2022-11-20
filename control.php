@@ -137,7 +137,7 @@
         $gradstate = isset($_POST['gradstate']) ? $_POST['gradstate'] : "";
         $gradzip = isset($_POST['gradzip']) ? $_POST['gradzip'] : "";
     
-        if(isset($_POST['site']) && $seriesName != ""){
+        if(isset($_POST['site']) && $ugName != ""){
             
             //insert into site table
             
