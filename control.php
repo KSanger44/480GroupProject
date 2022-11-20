@@ -72,16 +72,16 @@
               <input type="checkbox" id="grad2stepTB" name="grad2stepTB" value="1">
               <label for="grad2stepTB">2-Step TB</label><br>
 
-              <label for="GradReq">Unique Requirements:</label><br>
-              <textarea id="GradReq" name="GradReq" rows="4" cols="50"></textarea><br>
-              <label for="GradStreet">Address:</label>
-              <input type="text" id="GradStreet" name="GradStreet"><br>
-              <label for="GradCity">City:</label>
-              <input type="text" id="GradCity" name="GradCity"><br>
-              <label for="GradState">State:</label>
-              <input type="text" id="GradState" name="GradState"><br>
-              <label for="Gradzip">ZIP:</label>
-              <input type="text" id="Gradzip" name="Gradzip"><br>
+              <label for="gradReq">Unique Requirements:</label><br>
+              <textarea id="gradReq" name="gradReq" rows="4" cols="50"></textarea><br>
+              <label for="gradStreet">Address:</label>
+              <input type="text" id="gradStreet" name="gradStreet"><br>
+              <label for="gradCity">City:</label>
+              <input type="text" id="gradCity" name="gradCity"><br>
+              <label for="gradState">State:</label>
+              <input type="text" id="gradState" name="gradState"><br>
+              <label for="gradzip">ZIP:</label>
+              <input type="text" id="gradzip" name="gradzip"><br>
               <br>
               <input type="submit" id="submit" name="submit">
             </form>
@@ -105,7 +105,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "cs480";
+        $dbname = "typhoon";
     
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -120,13 +120,28 @@
         $ug90daytb = isset($_POST['90daytb']) ? $_POST['90daytb'] : "";
         $ug2steptb = isset($_POST['2stepTB']) ? $_POST['2stepTB'] : "";
         $ugUniqueReqs = isset($_POST['UGreq']) ? $_POST['UGreq'] : "";
-        
+        $ugstreet = isset($_POST['UGstreet']) ? $_POST['UGstreet'] : "";
+        $ugcity = isset($_POST['UGcity']) ? $_POST['UGcity'] : "";
+        $ugstate = isset($_POST['UGstate']) ? $_POST['UGstate'] : "";
+        $ugzip = isset($_POST['UGzip']) ? $_POST['UGzip'] : "";
+        $uglevel = 'u';
+
+        $gradName = isset($_POST['gradname']) ? $_POST['gradname'] : "";
+        $gradmyce = isset($_POST['gradmyce']) ? $_POST['myce'] : "";
+        $graddrugscreen = isset($_POST['graddrugscreen']) ? $_POST['drugscreen'] : "";
+        $grad90daytb = isset($_POST['grad90daytb']) ? $_POST['90daytb'] : "";
+        $grad2steptb = isset($_POST['grad2stepTB']) ? $_POST['2stepTB'] : "";
+        $gradUniqueReqs = isset($_POST['gradreq']) ? $_POST['gradreq'] : "";
+        $gradstreet = isset($_POST['gradstreet']) ? $_POST['gradstreet'] : "";
+        $gradcity = isset($_POST['gradcity']) ? $_POST['gradcity'] : "";
+        $gradstate = isset($_POST['gradstate']) ? $_POST['gradstate'] : "";
+        $gradzip = isset($_POST['gradzip']) ? $_POST['gradzip'] : "";
     
-        if(isset($_POST['series']) && $seriesName != ""){
+        if(isset($_POST['site']) && $seriesName != ""){
             
-            //insert into Series table
+            //insert into site table
             
-            $sql = 
+            $sql = "INSERT INTO `site` (`sID`, `name`, `level`, `street`, `city`, `state`, `zip`, `myce`, `90daytb`, `2steptb`, `uniquereq`) VALUES (NULL, '$ugName', '$uglevel', '$ugstreet', '$ugcity', '$ugstate', '$ugzip', '$ugmyce', '$ug90daytb', '$ug2steptb', '$ugUniqueReqs')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "<p>New record created successfully</p>";
