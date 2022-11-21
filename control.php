@@ -111,7 +111,8 @@
             
             //insert into site table
             
-            $sql = "INSERT INTO `site` (`sID`, `name`, `level`, `street`, `city`, `state`, `zip`, `myce`, `90daytb`, `2steptb`, `uniquereq`) VALUES (NULL, '$name', '$level', '$street', '$city', '$state', '$zip', '$myce', '$tb90day', '$tb2step', '$reqs')";
+            $sql = "INSERT INTO `site` (`sID`, `name`, `level`, `street`, `city`, `state`, `zip`, `myce`, `90daytb`, `2steptb`, `uniquereq`) 
+                                VALUES (NULL, '$name', '$level', '$street', '$city', '$state', '$zip', '$myce', '$tb90day', '$tb2step', '$reqs')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "<p>New record created successfully</p>";
