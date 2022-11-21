@@ -41,7 +41,8 @@
               $("#submit").click(function(){
                 var val = $("#pw").val();
                 if (val == "admin"){
-                  window.location.href = "control.php";
+                  var url = "http://localhost/dashboard/480/control.php";
+                  $(location).attr('href',url);
                 }
                 else {
                   alert("Incorrect password");
