@@ -26,11 +26,11 @@
             <a href="admin.html">Admin</a> 
           </div>
 
-          <div id="addUG">
-            <h3>Add Undergrad Site</h3>
+          <div id="addSite">
+            <h3>Add Site</h3>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-              <label for="UGname">Site Name:</label><br>
-              <input type="text" id="UGname" name="UGname"><br>
+              <label for="name">Site Name:</label><br>
+              <input type="text" id="name" name="name"><br>
 
               <input type="checkbox" id="myce" name="myce" value="1">
               <label for="myce">MyClinicalExchange</label><br>
@@ -40,52 +40,31 @@
               <label for="90daytb">90 Day TB</label><br>
               <input type="checkbox" id="2stepTB" name="2stepTB" value="1">
               <label for="2stepTB">2-Step TB</label><br>
+              
+              <label for="level">Level:</label>
+              <select id="level" name="level">
+                <option value="u">Undergraduate</option>
+                <option value="g">Graduate</option>
+                <option value="b">Both</option>
+              </select>
 
-              <label for="UGreq">Unique Requirements:</label><br>
-              <textarea id="UGreq" name="UGreq" rows="4" cols="50"></textarea><br>
-              <label for="UGstreet">Address:</label>
-              <input type="text" id="UGstreet" name="UGstreet"><br>
-              <label for="UGcity">City:</label>
-              <input type="text" id="UGcity" name="UGcity"><br>
-              <label for="UGstate">State:</label>
-              <input type="text" id="UGstate" name="UGstate"><br>
-              <label for="UGzip">ZIP:</label>
-              <input type="text" id="UGzip" name="UGzip"><br>
+              <label for="reqs">Unique Requirements:</label><br>
+              <textarea id="reqs" name="reqs" rows="4" cols="50"></textarea><br>
+              <label for="street">Address:</label>
+              <input type="text" id="street" name="street"><br>
+              <label for="city">City:</label>
+              <input type="text" id="city" name="city"><br>
+              <label for="state">State:</label>
+              <input type="text" id="state" name="state"><br>
+              <label for="zip">ZIP:</label>
+              <input type="text" id="zip" name="zip"><br>
               <br>
               <input type="submit" id="submit" name="submit">
             </form>
           </div>
           <br><br>
           
-          <div id="addGrad">
-            <h3>Add Graduate Site</h3>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-              <label for="Gradname">Site Name:</label><br>
-              <input type="text" id="GradName" name="GradName"><br>
-              
-              <input type="checkbox" id="gradmyce" name="gradmyce" value="1">
-              <label for="gradmyce">MyClinicalExchange</label><br>
-              <input type="checkbox" id="graddrugscreen" name="graddrugscreen" value="1">
-              <label for="graddrugscreen">Drug Screen</label><br>
-              <input type="checkbox" id="grad90daytb" name="grad90daytb" value="1">
-              <label for="grad90daytb">90 Day TB</label><br>
-              <input type="checkbox" id="grad2stepTB" name="grad2stepTB" value="1">
-              <label for="grad2stepTB">2-Step TB</label><br>
 
-              <label for="gradReq">Unique Requirements:</label><br>
-              <textarea id="gradReq" name="gradReq" rows="4" cols="50"></textarea><br>
-              <label for="gradStreet">Address:</label>
-              <input type="text" id="gradStreet" name="gradStreet"><br>
-              <label for="gradCity">City:</label>
-              <input type="text" id="gradCity" name="gradCity"><br>
-              <label for="gradState">State:</label>
-              <input type="text" id="gradState" name="gradState"><br>
-              <label for="gradzip">ZIP:</label>
-              <input type="text" id="gradzip" name="gradzip"><br>
-              <br>
-              <input type="submit" id="submit" name="submit">
-            </form>
-          </div>
           <br><br>
           <div id="addAnnouncement">
             <h3>Add Announcement</h3>
@@ -114,34 +93,25 @@
           die("Connection failed: " . $conn->connect_error);
         }
     
-        $ugName = isset($_POST['UGname']) ? $_POST['UGname'] : "";
-        $ugmyce = isset($_POST['myce']) ? $_POST['myce'] : "";
-        $ugdrugscreen = isset($_POST['drugscreen']) ? $_POST['drugscreen'] : "";
-        $ug90daytb = isset($_POST['90daytb']) ? $_POST['90daytb'] : "";
-        $ug2steptb = isset($_POST['2stepTB']) ? $_POST['2stepTB'] : "";
-        $ugUniqueReqs = isset($_POST['UGreq']) ? $_POST['UGreq'] : "";
-        $ugstreet = isset($_POST['UGstreet']) ? $_POST['UGstreet'] : "";
-        $ugcity = isset($_POST['UGcity']) ? $_POST['UGcity'] : "";
-        $ugstate = isset($_POST['UGstate']) ? $_POST['UGstate'] : "";
-        $ugzip = isset($_POST['UGzip']) ? $_POST['UGzip'] : "";
-        $uglevel = 'u';
+        $name = isset($_POST['name']) ? $_POST['name'] : "";
+        $myce = isset($_POST['myce']) ? $_POST['myce'] : "";
+        $drugscreen = isset($_POST['drugscreen']) ? $_POST['drugscreen'] : "";
+        $tb90day = isset($_POST['90daytb']) ? $_POST['90daytb'] : "";
+        $tb2step = isset($_POST['2stepTB']) ? $_POST['2stepTB'] : "";
+        $reqs = isset($_POST['reqs']) ? $_POST['reqs'] : "";
+        $street = isset($_POST['street']) ? $_POST['street'] : "";
+        $city = isset($_POST['city']) ? $_POST['city'] : "";
+        $state = isset($_POST['state']) ? $_POST['state'] : "";
+        $zip = isset($_POST['zip']) ? $_POST['zip'] : "";
+        $level = isset($_POST['level']) ? $_POST['level'] : "";
 
-        $gradName = isset($_POST['gradname']) ? $_POST['gradname'] : "";
-        $gradmyce = isset($_POST['gradmyce']) ? $_POST['myce'] : "";
-        $graddrugscreen = isset($_POST['graddrugscreen']) ? $_POST['drugscreen'] : "";
-        $grad90daytb = isset($_POST['grad90daytb']) ? $_POST['90daytb'] : "";
-        $grad2steptb = isset($_POST['grad2stepTB']) ? $_POST['2stepTB'] : "";
-        $gradUniqueReqs = isset($_POST['gradreq']) ? $_POST['gradreq'] : "";
-        $gradstreet = isset($_POST['gradstreet']) ? $_POST['gradstreet'] : "";
-        $gradcity = isset($_POST['gradcity']) ? $_POST['gradcity'] : "";
-        $gradstate = isset($_POST['gradstate']) ? $_POST['gradstate'] : "";
-        $gradzip = isset($_POST['gradzip']) ? $_POST['gradzip'] : "";
+
     
-        if(isset($_POST['site']) && $ugName != ""){
+        if(isset($_POST['site']) && $name != ""){
             
             //insert into site table
             
-            $sql = "INSERT INTO `site` (`sID`, `name`, `level`, `street`, `city`, `state`, `zip`, `myce`, `90daytb`, `2steptb`, `uniquereq`) VALUES (NULL, '$ugName', '$uglevel', '$ugstreet', '$ugcity', '$ugstate', '$ugzip', '$ugmyce', '$ug90daytb', '$ug2steptb', '$ugUniqueReqs')";
+            $sql = "INSERT INTO `site` (`sID`, `name`, `level`, `street`, `city`, `state`, `zip`, `myce`, `90daytb`, `2steptb`, `uniquereq`) VALUES (NULL, '$name', '$level', '$street', '$city', '$state', '$zip', '$myce', '$tb90day', '$tb2step', '$reqs')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "<p>New record created successfully</p>";
