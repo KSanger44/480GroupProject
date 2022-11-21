@@ -28,7 +28,7 @@
 
           <div id="addSite">
             <h3>Add Site</h3>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <form action="" method="post">
               <label for="name">Site Name:</label><br>
               <input type="text" id="name" name="name"><br>
 
@@ -81,10 +81,8 @@
 
           <?php
         //connect to the db schema
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "typhoon";
+        include("typhoonconfig.php");
+        session_start();
     
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
