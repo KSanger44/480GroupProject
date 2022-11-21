@@ -46,7 +46,7 @@
                 <option value="u">Undergraduate</option>
                 <option value="g">Graduate</option>
                 <option value="b">Both</option>
-              </select>
+              </select><br>
 
               <label for="reqs">Unique Requirements:</label><br>
               <textarea id="reqs" name="reqs" rows="4" cols="50"></textarea><br>
