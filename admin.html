@@ -40,9 +40,8 @@
             $(document).ready(function(){
               $("#submit").click(function(){
                 var val = $("#pw").val();
-                if (val == "admin"){
-                  var url = "http://localhost/dashboard/480/control.php";
-                  $(location).attr('href',url);
+                if (val == "admin"){                  
+                  window.open("control.php");
                 }
                 else {
                   alert("Incorrect password");
